@@ -1,0 +1,46 @@
+﻿@model ConsumingRestAPI.Models.DTO.Note
+
+@ViewBag.Title = "Excluir";
+
+<h2>Excluir</h2>
+
+<h3>Deseja excluir o lembrete?</h3>
+<div>
+    <h4>Note</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Titulo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            Descricao
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Body)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+
+    @if (ViewBag.Error != null)
+    { 
+        <div class="alert alert-danger">
+            @ViewBag.Error
+        </div>
+    }
+
+</div>
